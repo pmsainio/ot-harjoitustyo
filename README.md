@@ -1,6 +1,6 @@
-#Tämä on suurin otsikko
+# Tämä on suurin otsikko
 
-##Tämä on vähän pienempi otsikko
+## Tämä on vähän pienempi otsikko
 
 
 Olin koko viikon **speksissä**, niin minun piti jättää näiden tekeminen viime *tinkaan*
