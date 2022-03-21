@@ -4,6 +4,8 @@
 
 #### Tämä on paikallinen muutos
 
+##### Tämä on toinen paikallinen muutos, jotta tiedostot saataisiin epäsynkkaan
+
 [gitlog](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/gitlog.txt)
 
 [unicafe](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/komentorivi.txt)
