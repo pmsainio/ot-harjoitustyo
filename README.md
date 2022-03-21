@@ -2,6 +2,8 @@
 
 ## Tämä on vähän pienempi otsikko
 
+#### Tämä on paikallinen muutos
+
 [gitlog](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/gitlog.txt)
 
 [unicafe](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/komentorivi.txt)
