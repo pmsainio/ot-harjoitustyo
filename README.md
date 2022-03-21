@@ -2,6 +2,9 @@
 
 ## Tämä on vähän pienempi otsikko
 
+[gitlog](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/gitlog.txt)
+
+[unicafe](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/komentorivi.txt)
 
 Olin koko viikon **speksissä**, niin minun piti jättää näiden tekeminen viime *tinkaan*
 
