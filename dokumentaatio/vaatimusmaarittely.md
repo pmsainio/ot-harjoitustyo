@@ -1,14 +1,14 @@
-#Vaatimusmäärittely
+# Vaatimusmäärittely
 
-###Sovelluksen tarkoitus
+### Sovelluksen tarkoitus
 Sovelluksen tarkoitus on mallintaa yksinkertaista syntetisaattoria koskettimistolla ja säätimillä. Käyttäjä voi ohjata soitinta näppäimistöllä tai MIDI-ohjaimella sekä tallentaa säädöksensä presetiksi.
 
-###Suunnitellut toiminnallisuudet
+### Suunnitellut toiminnallisuudet
 - Muutamia eri aaltomuotoja, kuten siniaalto, saha-aalto, kanttiaalto ja kolmioaalto
 - Attack, Decay, Sustain, Release -säätimistö (ADSR) ja lowpass-filtteri
 - Äänikirjasto, jossa valmiita asetuksia ja mahdollisuus tallentaa omia asetuksia.
 
-###Jatkokehitysideoita
+### Jatkokehitysideoita
 - säädettävä mono- vs. polyfonisuus
 - Kustomoitava pitch-bend
 - Hidas oskillattori (LFO) modulointia varten
