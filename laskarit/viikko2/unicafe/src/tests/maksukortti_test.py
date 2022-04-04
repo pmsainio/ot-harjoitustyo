@@ -5,7 +5,7 @@ from kassapaate import Kassapaate
 class TestMaksukortti(unittest.TestCase):
     def setUp(self):
         self.maksukortti = Maksukortti(1000)
-        self.kassapaate = Kassapaate
+
 
     def test_alkusaldo_oikein(self):
         self.assertEqual(str(self.maksukortti), "saldo: 10.0")
