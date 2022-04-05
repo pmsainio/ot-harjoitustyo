@@ -1,15 +1,25 @@
-# Tämä on suurin otsikko
+# Pysynth-projekti
 
-## Tämä on vähän pienempi otsikko
+### Käyttöohjeet
 
-#### Tämä on paikallinen muutos
+Ohjelman saa toimintaan komennoilla ```bash
+poetry install
+```
+```bash
+poetry run invoke build
+```
+```bash
+poetry run invoke start
+```
+Ohjelma avaa ikkunan, jolla näkyy kirjaimia. Näitä kirjaimia painamalla (tietokoneen näppäimistöllä) ohjelma soittaa eri säveliä.
+Syntesoijan ääntä voi vaihtaa painamalla vasemmassa yläreunassa olevia sanoja. (Oletusarvona on kolmioaalto 'Triangle'.) *Huom! Ohjelman äänenvoimakkuutta ei ole normalisoitu. Varo siis korviasi, kun kokeilet eri aaltomuotoja.* 
 
-##### Tämä on toinen paikallinen muutos, jotta tiedostot saataisiin epäsynkkaan
+Testiympäristö ja versinainen ohjelma ovat toimineet eri fonteilla. Tämän vuoksi aaltomuotoa vaihtaessa on helppoa klikata ohi, ja vaihtotoimenpide saattaa vaatia kärsivällisyyttä.
 
-[gitlog](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/gitlog.txt)
+Mikäli haluat suorittaa ohjelman testejä, onnistuvat ne komentorivin komennolla ```bash
+poetry run invoke test
+```
+Testikattavuusraportti puolestaan on luotavissa komennolla ```bash
+poetry run invoke coverage-report
+```
 
-[unicafe](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/komentorivi.txt)
-
-Olin koko viikon **speksissä**, niin minun piti jättää näiden tekeminen viime *tinkaan*
-
-***Mutta kiitos ekoista tehtävistä, ne oli helppo tehdä ja komentorivistä jäi paljon parempi olo kuin Lapio-kursisn jäljiltä***
