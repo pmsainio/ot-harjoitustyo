@@ -2,6 +2,7 @@
 
 ### Käyttöohjeet
 
+<<<<<<< HEAD
 Ohjelman saa toimintaan komennoilla ```bash
 poetry install
 ```
@@ -15,6 +16,9 @@ Ohjelma avaa ikkunan, jolla näkyy kirjaimia. Näitä kirjaimia painamalla (tiet
 Syntesoijan ääntä voi vaihtaa painamalla vasemmassa yläreunassa olevia sanoja. (Oletusarvona on kolmioaalto 'Triangle'.) *Huom! Ohjelman äänenvoimakkuutta ei ole normalisoitu. Varo siis korviasi, kun kokeilet eri aaltomuotoja.* 
 
 Testiympäristö ja versinainen ohjelma ovat toimineet eri fonteilla. Tämän vuoksi aaltomuotoa vaihtaessa on helppoa klikata ohi, ja vaihtotoimenpide saattaa vaatia kärsivällisyyttä.
+=======
+#### Ensimmäisen viikon jutut
+>>>>>>> 7d6bb6e6af5b6e77849a5221d3ead36734234548
 
 Mikäli haluat suorittaa ohjelman testejä, onnistuvat ne komentorivin komennolla ```bash
 poetry run invoke test
@@ -23,3 +27,13 @@ Testikattavuusraportti puolestaan on luotavissa komennolla ```bash
 poetry run invoke coverage-report
 ```
 
+<<<<<<< HEAD
+=======
+[unicafe](https://github.com/pmsainio/ot-harjoitustyo/blob/master/viikko1/komentorivi.txt)
+
+#### Toisen viikon jutut
+
+[vaatimusmäärittely](https://github.com/pmsainio/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[työaikakirjanpito](https://github.com/pmsainio/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+>>>>>>> 7d6bb6e6af5b6e77849a5221d3ead36734234548
