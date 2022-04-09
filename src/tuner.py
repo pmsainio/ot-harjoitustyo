@@ -10,6 +10,3 @@ def tune(tuning:int, freq:list):
         f *= step
         freq.append(f)
     return(freq)
-
-print(tune(415, []))
-
