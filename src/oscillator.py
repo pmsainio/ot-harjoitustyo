@@ -1,6 +1,5 @@
 import gensound.transforms as gt
 import gensound as gs
-from pydub.generators import Sine
 
 
 

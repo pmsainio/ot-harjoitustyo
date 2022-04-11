@@ -29,6 +29,7 @@ if __name__=="__main__":
     running = True
     screen = pygame.display.set_mode((width, height))
     screen.fill((210, 185, 100))
+
     black_keys_we = font.render(f"w e", 1, (25, 25, 25))
     black_keys_tyu = font.render(f"t y u", 1, (25, 25, 25))
     black_keys_op = font.render(f"o p", 1, (25, 25, 25))
@@ -43,11 +44,13 @@ if __name__=="__main__":
     pygame.draw.rect(screen, (195, 170, 87), pygame.Rect(115, 100, 107, 40))
     pygame.draw.rect(screen, (195, 170, 87), pygame.Rect(115, 145, 120, 32))
     
+
     sinebutton = wavefont.render(f"sine", 1, (30, 30, 30))
     sawbutton = wavefont.render(f"saw", 1, (30, 30, 30))
     squarebutton = wavefont.render(f"square", 1, (30, 30, 30))
     trianglebutton = wavefont.render(f"triangle", 1, (30, 30, 30))
     screen.blit(sinebutton, (50, 100))
+
     screen.blit(squarebutton, (120, 100))
     screen.blit(sawbutton, (50, 130))
     screen.blit(trianglebutton, (120, 130))

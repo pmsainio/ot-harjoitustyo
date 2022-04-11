@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ##Työaikakirjanpito
 
 31.3. pyaudio- ja mido-kirjastoihin perehtymistä (2h)
@@ -8,5 +8,10 @@
 
 6.4. Gain-säätöä eri aaltomuodoille, ulkoasun hiomista (1h)
 =======
+
 ## Työaikakirjanpito
->>>>>>> 7d6bb6e6af5b6e77849a5221d3ead36734234548
+
+- 31.3. pyaudio- ja mido-kirjastoihin perehtymistä (2h)
+- 3.4. Käytännön toteutuksen selvittelyä ja pohtimista (1h)
+- 4.4. Vimmattua ohjelmointia (3h)
+- 5.4. Käyttöliittymän luominen, pääohjelman hajautusta (4h)
