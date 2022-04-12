@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     WAVEFORM = gs.Triangle
     octave_shift = 1
-    os_screen = 0
+    OS_SCREEN = 0
     TUNING = 440
     frequencies = []
     tune(TUNING, frequencies)

@@ -3,7 +3,9 @@
 ### Käyttöohjeet
 
 
-Ohjelman saa toimintaan komennoilla ```bash
+Ohjelman saa toimintaan komennoilla
+
+```bash
 poetry install
 ```
 ```bash
@@ -13,18 +15,17 @@ poetry run invoke build
 poetry run invoke start
 ```
 Ohjelma avaa ikkunan, jolla näkyy kirjaimia. Näitä kirjaimia painamalla (tietokoneen näppäimistöllä) ohjelma soittaa eri säveliä.
-Syntesoijan ääntä voi vaihtaa painamalla vasemmassa yläreunassa olevia sanoja. (Oletusarvona on kolmioaalto 'Triangle'.) *Huom! Ohjelman äänenvoimakkuutta ei ole normalisoitu. Varo siis korviasi, kun kokeilet eri aaltomuotoja.*
+Syntesoijan ääntä voi vaihtaa painamalla vasemmassa yläreunassa olevia sanoja. (Oletusarvona on kolmioaalto 'Triangle'.)
 
-Testiympäristö ja versinainen ohjelma ovat toimineet eri fonteilla. Tämän vuoksi aaltomuotoa vaihtaessa on helppoa klikata ohi, ja vaihtotoimenpide saattaa vaatia kärsivällisyyttä.
+Koskettimiston oktaavia saa vaihdettua näppäimillä z (alas) ja x (ylös). *Huom! Yli 22500 Hz:n taajuudet tulevat vihreellisesti soimaan matalammalta ohjelman näytteenottotaajuuden (44100) vuoksi. Tämä ei ole virhe vaan ominaisuus.*
 
 Mikäli haluat suorittaa ohjelman testejä, onnistuvat ne komentorivin komennolla ```bash
 poetry run invoke test
 ```
-Testikattavuusraportti puolestaan on luotavissa komennolla ```bash
+Testikattavuusraportti puolestaan on luotavissa komennolla
+```bash
 poetry run invoke coverage-report
 ```
-
-
 
 [vaatimusmäärittely](https://github.com/pmsainio/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
