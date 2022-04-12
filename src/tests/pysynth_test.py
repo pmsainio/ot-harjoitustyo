@@ -1,5 +1,8 @@
 import unittest
+from pygame import mixer
 from tuner import tune
+from oscillator import oscillate
+import gensound as gs
 
 class TestTuner(unittest.TestCase):
     def setUp(self):
@@ -23,3 +26,9 @@ class TestTuner(unittest.TestCase):
             391.7078397629028, 415, 439.6771841591075, 465.8217500483898,
             493.5209527261293, 522.8672357063724, 553.9585394805644,
             586.8986283848345, 621.7974369038229])
+
+class TestOscillator(unittest.TestCase):
+    def test_oscillate(self):
+        oscillate(400, gs.Triangle).play() == mixer.get_busy()
+
+        self.assertEqual(self.sound, True)
