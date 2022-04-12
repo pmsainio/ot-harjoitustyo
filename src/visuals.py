@@ -1,10 +1,12 @@
 import pygame
 
+
 class Display():
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self.screen = pygame.display.set_mode((self.width, self.height))
+
 
 def update(screen, font, wave_font, width):
 

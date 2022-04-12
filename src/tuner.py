@@ -1,4 +1,4 @@
-def tune(tuning:int, freq:list):
+def tune(tuning: int, freq: list):
     key_f = tuning
     step = 2**(1/12)
     for i in range(9):

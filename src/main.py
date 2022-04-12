@@ -14,7 +14,7 @@ WIDTH = 720
 HEIGHT = 640
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
     WAVEFORM = gs.Triangle
     octave_shift = 1

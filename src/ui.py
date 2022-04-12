@@ -46,13 +46,13 @@ def ui_action(TUNING, octave_shift, os_screen):
 
             if event.key == pygame.K_z:
                 octave_shift /= 2
-                os_screen -=1
+                os_screen -= 1
                 frequencies = []
                 tune(TUNING*octave_shift, frequencies)
 
             if event.key == pygame.K_x:
                 octave_shift *= 2
-                os_screen +=2
+                os_screen += 2
                 frequencies = []
                 tune(TUNING*octave_shift, frequencies)
 
