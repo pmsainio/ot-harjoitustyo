@@ -10,3 +10,9 @@
 Seuraavat tavoitteet:
 - siistimpi käyttöliittymä (sekä reaalisesti, että koodissa)
 - ADSR-hallintapaneeli
+
+## Viikko 4
+
+- Testikattavuusraportin bugaaminen korjattu
+- Koskettimistoa laajennettu (+ transponointimahdollisuus)
+- Hajautettu käyttöliittymä helpompaa jatkokehitystä varten
