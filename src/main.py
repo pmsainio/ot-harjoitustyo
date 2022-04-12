@@ -29,5 +29,5 @@ if __name__ == "__main__":
 
     while running:
         pygame.mixer.init()
-        ui_action()
+        ui_action(TUNING, octave_shift, OS_SCREEN, frequencies, WAVEFORM)
         pygame.display.update()

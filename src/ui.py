@@ -4,7 +4,8 @@ from oscillator import oscillate
 from tuner import tune
 
 
-def ui_action(TUNING, octave_shift, os_screen):
+def ui_action(TUNING, octave_shift, os_screen, frequencies, W):
+    WAVEFORM = W
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
