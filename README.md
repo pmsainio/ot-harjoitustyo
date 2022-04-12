@@ -17,7 +17,7 @@ poetry run invoke start
 Ohjelma avaa ikkunan, jolla näkyy kirjaimia. Näitä kirjaimia painamalla (tietokoneen näppäimistöllä) ohjelma soittaa eri säveliä.
 Syntesoijan ääntä voi vaihtaa painamalla vasemmassa yläreunassa olevia sanoja. (Oletusarvona on kolmioaalto 'Triangle'.)
 
-Koskettimiston oktaavia saa vaihdettua näppäimillä z (alas) ja x (ylös). *Huom! Yli 22500 Hz:n taajuudet tulevat vihreellisesti soimaan matalammalta ohjelman näytteenottotaajuuden (44100) vuoksi. Tämä ei ole virhe vaan ominaisuus.*
+Koskettimiston oktaavia saa vaihdettua näppäimillä z (alas) ja x (ylös). *Huom! Yli 22050 Hz:n taajuudet tulevat vihreellisesti soimaan matalammalta ohjelman näytteenottotaajuuden (44100) vuoksi. Tämä ei ole virhe vaan ominaisuus.*
 
 Mikäli haluat suorittaa ohjelman testejä, onnistuvat ne komentorivin komennolla
 ```bash
