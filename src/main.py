@@ -1,8 +1,7 @@
 import pygame
-import gensound as gs
-from tuner import tune
 from ui import ui_action
 from visuals import update
+from oscillator import Oscillator
 
 sample_rate = 44100
 
@@ -15,19 +14,13 @@ HEIGHT = 640
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 if __name__ == "__main__":
-
-    WAVEFORM = gs.Triangle
-    octave_shift = 1
-    OS_SCREEN = 0
-    TUNING = 440
-    frequencies = []
-    tune(TUNING, frequencies)
-
+    oscillator = Oscillator()
     running = True
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    update(screen, font, wave_font, WIDTH)
 
+    update(screen, font, wave_font, WIDTH)
     while running:
         pygame.mixer.init()
-        ui_action(TUNING, octave_shift, OS_SCREEN, frequencies, WAVEFORM)
+        
+        ui_action(oscillator)
         pygame.display.update()

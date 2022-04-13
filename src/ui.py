@@ -1,61 +1,54 @@
 import pygame
 import gensound as gs
-from oscillator import oscillate
+from oscillator import Oscillator
 from tuner import tune
 
 
-def ui_action(TUNING, octave_shift, os_screen, frequencies, W):
-    WAVEFORM = W
+def ui_action(oscillator:Oscillator):
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 exit()
             if event.key == pygame.K_a:
-                oscillate(frequencies[0], WAVEFORM).play()
+                oscillator.play(0)
             if event.key == pygame.K_w:
-                oscillate(frequencies[1], WAVEFORM).play()
+                oscillator.play(1)
             if event.key == pygame.K_s:
-                oscillate(frequencies[2], WAVEFORM).play()
+                oscillator.play(2)
             if event.key == pygame.K_e:
-                oscillate(frequencies[3], WAVEFORM).play()
+                oscillator.play(3)
             if event.key == pygame.K_d:
-                oscillate(frequencies[4], WAVEFORM).play()
+                oscillator.play(4)
             if event.key == pygame.K_f:
-                oscillate(frequencies[5], WAVEFORM).play()
+                oscillator.play(5)
             if event.key == pygame.K_t:
-                oscillate(frequencies[6], WAVEFORM).play()
+                oscillator.play(6)
             if event.key == pygame.K_g:
-                oscillate(frequencies[7], WAVEFORM).play()
+                oscillator.play(7)
             if event.key == pygame.K_y:
-                oscillate(frequencies[8], WAVEFORM).play()
+                oscillator.play(8)
             if event.key == pygame.K_h:
-                oscillate(frequencies[9], WAVEFORM).play()
+                oscillator.play(9)
             if event.key == pygame.K_u:
-                oscillate(frequencies[10], WAVEFORM).play()
+                oscillator.play(10)
             if event.key == pygame.K_j:
-                oscillate(frequencies[11], WAVEFORM).play()
+                oscillator.play(11)
             if event.key == pygame.K_k:
-                oscillate(frequencies[12], WAVEFORM).play()
+                oscillator.play(12)
             if event.key == pygame.K_o:
-                oscillate(frequencies[13], WAVEFORM).play()
+                oscillator.play(13)
             if event.key == pygame.K_l:
-                oscillate(frequencies[14], WAVEFORM).play()
+                oscillator.play(14)
             if event.key == pygame.K_p:
-                oscillate(frequencies[15], WAVEFORM).play()
+                oscillator.play(15)
             if event.key == 246:
-                oscillate(frequencies[16], WAVEFORM).play()
+                oscillator.play(16)
 
             if event.key == pygame.K_z:
-                octave_shift /= 2
-                os_screen -= 1
-                frequencies = []
-                tune(TUNING*octave_shift, frequencies)
+                oscillator.transpose(True)
 
             if event.key == pygame.K_x:
-                octave_shift *= 2
-                os_screen += 2
-                frequencies = []
-                tune(TUNING*octave_shift, frequencies)
+                oscillator.transpose(False)
 
             """if event.type == pygame.KEYUP:
             if event.key == pygame.K_a:
@@ -96,12 +89,12 @@ def ui_action(TUNING, octave_shift, os_screen, frequencies, W):
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse = pygame.mouse.get_pos()
             if 110 > mouse[0] > 45 and 140 > mouse[1] > 100:
-                WAVEFORM = gs.Sine
+                oscillator.switch_sound(gs.Sine)
             if 182 > mouse[0] > 115 and 140 > mouse[1] > 100:
-                WAVEFORM = gs.Square
+                oscillator.switch_sound(gs.Square)
             if 110 > mouse[0] > 45 and 180 > mouse[1] > 145:
-                WAVEFORM = gs.Sawtooth
+                oscillator.switch_sound(gs.Sawtooth)
             if 200 > mouse[0] > 145 and 180 > mouse[1] > 130:
-                WAVEFORM = gs.Triangle
+                oscillator.switch_sound(gs.Triangle)
         if event.type == pygame.QUIT:
             exit()
