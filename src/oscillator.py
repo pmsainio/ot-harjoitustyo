@@ -42,6 +42,9 @@ class Oscillator():
 
     def switch_sound(self, sound):
         self.WAVEFORM = sound
+
+    def retune(self, frequency):
+        self.TUNING = frequency
 """
 def hold(FREQUENCY, WAVEFORM):
     SOUND = WAVEFORM(FREQUENCY, 80000)*gt.ADSR(attack=0,
