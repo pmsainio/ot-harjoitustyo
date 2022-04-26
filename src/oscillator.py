@@ -1,62 +1,67 @@
 import gensound.transforms as gt
 import gensound as gs
 from tuner import tune
-
-
-def oscillate(FREQUENCY, WAVEFORM):
-    SOUND = WAVEFORM(FREQUENCY, 80000)*gt.ADSR(attack=0.002e3,
-                                               decay=0.3e3, sustain=0.3, release=1)
-    if WAVEFORM == gs.Square or WAVEFORM == gs.Sawtooth:
-        SOUND *= 0.4
-    return SOUND.play()
+import pygame
 
 class Oscillator():
     def __init__(self):
-        self.WAVEFORM = gs.Triangle
+        self.waveform = gs.Triangle
         self.octave_shift = 1
-        self.OS_SCREEN = 0
-        self.TUNING = 440
-        self.frequencies = []
-        self.frequencies = tune(self.TUNING, self.frequencies)
+        self.os_screen = 0
+        self.tuning = 440
+        self.frequencies = tune(self.tuning)
+        self.attack = 0.5
+        self.release = 200
+        self.gain = 0.3
+        self.last_note = None
+
+    def oscillate(self, frequency, waveform):
+        sound = waveform(frequency)*gt.ADSR(attack=0.002e3,
+                                                decay=0.3e3, sustain=1, release=self.release)
+        sound *= self.gain 
+        return sound.play(max_amplitude=1)
 
     def play(self, n):
-        oscillate(self.frequencies[n], self.WAVEFORM)
-        
-    def switch_sound(self, WAVEFORM):
-        self.WAVEFORM = WAVEFORM
+        self.last_note = self.frequencies[n]
+        self.oscillate(self.last_note, self.waveform)
 
-    def transpose(self, down:bool):
+    def stop(self, n):
+        if self.last_note == self.frequencies[n]:
+            pygame.mixer.fadeout(self.release)
+
+    def switch_sound_sine(self):
+        self.waveform = gs.Sine
+
+    def switch_sound_triangle(self):
+        self.waveform = gs.Triangle
+
+    def switch_sound_square(self):
+        self.waveform = gs.Square
+
+    def switch_sound_saw(self):
+        self.waveform = gs.Sawtooth
+
+    def transpose(self, down: bool):
         if down:
             self.octave_shift /= 2
-            self.OS_SCREEN -= 1
+            self.os_screen -= 1
             self.frequencies = []
-            print(self.octave_shift)
-            tune(self.TUNING*self.octave_shift, self.frequencies)
-            print(self.frequencies)
+            tune(self.tuning*self.octave_shift, self.frequencies)
 
         else:
             self.octave_shift *= 2
-            self.OS_SCREEN += 2
+            self.os_screen += 2
             self.frequencies = []
-            tune(self.TUNING*self.octave_shift, self.frequencies)
-
-    def switch_sound(self, sound):
-        self.WAVEFORM = sound
+            tune(self.tuning*self.octave_shift, self.frequencies)
 
     def retune(self, frequency):
-        self.TUNING = frequency
-"""
-def hold(FREQUENCY, WAVEFORM):
-    SOUND = WAVEFORM(FREQUENCY, 80000)*gt.ADSR(attack=0,
-                                               decay=0, sustain=0.3, release=0)
-    if WAVEFORM == gs.Square or WAVEFORM == gs.Sawtooth:
-        SOUND *= 0.4
-    return SOUND
+        self.frequencies = tune(int(frequency))
 
+    def set_attack(self, value):
+        self.attack = int(value)
 
-def release(FREQUENCY, WAVEFORM):
-    SOUND = WAVEFORM(FREQUENCY, 80000)*gt.ADSR(attack=0,
-                                               decay=0, sustain=0.3, release=0)
-    if WAVEFORM == gs.Square or WAVEFORM == gs.Sawtooth:
-        SOUND *= 0.4
-    return SOUND"""
+    def set_release(self, value):
+        self.release = int(value) * 10 + 1
+
+    def set_gain(self, value):
+        self.gain = int(value) * 0.004

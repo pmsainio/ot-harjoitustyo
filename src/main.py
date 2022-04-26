@@ -1,23 +1,22 @@
+import os
 import pygame
 from ui import ui_action
 from visuals import Display
 from oscillator import Oscillator
-
-sample_rate = 44100
+from tkinter import *
+import controls
 
 pygame.font.init()
-
-
 
 if __name__ == "__main__":
     oscillator = Oscillator()
     display = Display()
-    running = True
-
+    RUNNING = True
+    pygame.mixer.init()
     display.update()
-    while running:
-        pygame.mixer.init()
-        display.variables()
-        
+    controls.buttons_sliders(oscillator)
+
+    while RUNNING:    
         ui_action(oscillator)
+        controls.root.update()
         pygame.display.update()
