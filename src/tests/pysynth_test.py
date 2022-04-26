@@ -68,8 +68,8 @@ class TestTransposing(unittest.TestCase):
         self.oscillator = Oscillator()
 
     def test_transpose_down(self):
-        transposed = self.oscillator.transpose(True)
-        self.assertEqual(transposed, [130.81278265029925, 138.59131548843598,
+        self.oscillator.transpose(True)
+        self.assertEqual(self.oscillator.frequencies, [130.81278265029925, 138.59131548843598,
                                                     146.83238395870373, 155.5634918610404,
                                                     164.81377845643493, 174.6141157165019,
                                                     184.99721135581717, 195.99771799087463,
@@ -79,8 +79,8 @@ class TestTransposing(unittest.TestCase):
                                                     311.126983722081, 329.62755691287003])
                                     
     def test_transpose_up(self):
-        transposed = self.oscillator.transpose(False)
-        self.assertEqual(transposed, [523.251130601197, 554.3652619537439,
+        self.oscillator.transpose(False)
+        self.assertEqual(self.oscillator.frequencies, [523.251130601197, 554.3652619537439,
                                                     587.3295358348149, 622.2539674441616,
                                                     659.2551138257397, 698.4564628660077,
                                                     739.9888454232687, 783.9908719634985,

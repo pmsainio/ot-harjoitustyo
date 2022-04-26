@@ -10,6 +10,4 @@ def tune(tuning: int):
     for i in range(1, 8):
         key_f *= step
         freq.append(key_f)
-    print(freq)
     return freq
-    

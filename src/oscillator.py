@@ -19,7 +19,7 @@ class Oscillator():
                                             decay=0.3e3,
                                             sustain=1,
                                             release=self.release)
-        sound *= self.gain
+        sound *= float(self.gain)
         return sound.play(max_amplitude=1)
 
     def play(self, note:int):
@@ -45,16 +45,14 @@ class Oscillator():
     def transpose(self, down: bool):
         if down:
             self.octave_shift /= 2
-            tune(self.tuning*self.octave_shift)
-            return tune(self.tuning*self.octave_shift)
-
-        self.octave_shift *= 2
-        tune(self.tuning*self.octave_shift)
-        return tune(self.tuning*self.octave_shift)
+            self.frequencies = tune(self.tuning * self.octave_shift)
+        
+        else:
+            self.octave_shift *= 2
+            self.frequencies = tune(self.tuning * self.octave_shift)
 
     def retune(self, frequency):
         self.frequencies = tune(int(frequency))
-        print(self.frequencies)
 
     #def set_attack(self, value):
     #    self.attack = int(value)
@@ -63,4 +61,4 @@ class Oscillator():
         self.release = int(value) * 10 + 1
 
     def set_gain(self, value):
-        self.gain = int(value) * 0.004
+        self.gain = int(value)+1 * 0.005
