@@ -16,3 +16,12 @@ Seuraavat tavoitteet:
 - Testikattavuusraportin bugaaminen korjattu
 - Koskettimistoa laajennettu (+ transponointimahdollisuus)
 - Hajautettu käyttöliittymä helpompaa jatkokehitystä varten
+
+## Viikko 5
+
+- Oskillattoritoiminnan muuttaminen luokaksi
+- Muutettu käyttöliittymä kaksi-ikkunaiseksi siisteyden nimissä:
+  - Toinen ikkuna viittaa näppäimistön toiminnallisuuteen
+  - Toinen ikkuna toteuttaa hiirellä suoritettavat komennot
+- Puolittainen Attack-Decay-Sustain-Release(ADSR)-paneeli
+- Mukautettava viritys
