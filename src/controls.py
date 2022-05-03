@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import *
-import gensound as gs
 from oscillator import Oscillator
+from envelope import Envelope
 
 root = tk.Tk()
 root.title("Controls")
 
-def buttons_sliders(oscillator:Oscillator):
+def buttons_sliders(oscillator:Oscillator, envelope:Envelope):
     sine_button = Button(root, text="Sine", padx=30, command=oscillator.switch_sound_sine)
     triangle_button = Button(root, text="Triangle", padx=25, command=oscillator.switch_sound_triangle)
     square_button = Button(root, text="Square", padx=25, command=oscillator.switch_sound_square)
@@ -14,9 +14,9 @@ def buttons_sliders(oscillator:Oscillator):
 
 
     tuner = tk.Scale(root, from_=450, to=420, command=oscillator.retune)
-    attack = tk.Scale(root, from_=0.999e3, to=0.001e3) # command=oscillator.set_attack
-    release = tk.Scale(root, from_=500, to=0, command=oscillator.set_release)
-    volume = tk.Scale(root, from_=100, to=0, command=oscillator.set_gain)
+    attack = tk.Scale(root, from_=0.999e3, to=0.001e3, command=envelope.set_attack) 
+    release = tk.Scale(root, from_=500, to=0, command=envelope.set_release)
+    volume = tk.Scale(root, from_=100, to=0, command=envelope.set_gain)
     tuner.set(440)
 
     tuner_label = Label(root, text="Tuner")
