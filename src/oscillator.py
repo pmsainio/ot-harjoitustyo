@@ -1,5 +1,4 @@
 import gensound as gs
-from envelope import Envelope
 from tuner import tune
 
 class Oscillator():
