@@ -1,12 +1,15 @@
 import unittest
+from fx import Effects
+from envelope import Envelope
 from tuner import tune
 from oscillator import Oscillator
 import gensound as gs
+import pygame
 
 
 class TestTuner(unittest.TestCase):
     def setUp(self):
-        self.oscillator = Oscillator()
+        self.oscillator = Oscillator(envelope=Envelope)
         self.concert = tune(440)
         self.baroque = tune(415)
         self.oscillator.retune(432)
@@ -45,7 +48,7 @@ class TestTuner(unittest.TestCase):
 
 class TestSwitchSound(unittest.TestCase):
     def setUp(self):
-        self.oscillator = Oscillator()
+        self.oscillator = Oscillator(envelope=Envelope)
 
     def test_switch_sine(self):
         self.oscillator.switch_sound_sine()
@@ -65,7 +68,7 @@ class TestSwitchSound(unittest.TestCase):
 
 class TestTransposing(unittest.TestCase):
     def setUp(self):
-        self.oscillator = Oscillator()
+        self.oscillator = Oscillator(envelope=Envelope)
 
     def test_transpose_down(self):
         self.oscillator.transpose(True)
@@ -88,3 +91,19 @@ class TestTransposing(unittest.TestCase):
                                                     987.7666025122483, 1046.5022612023947,
                                                     1108.7305239074885, 1174.6590716696305,
                                                     1244.507934888324, 1318.5102276514801])
+class TestSound(unittest.TestCase):
+    def setUp(self):
+        self.effects = Effects()
+        self.envelope = Envelope(self.effects)
+
+    def test_sound_on(self):
+        self.envelope.apply_attack(440, gs.Triangle)
+        sound_status = pygame.mixer.get_busy()
+        self.assertEqual(sound_status, True)
+
+    """def test_sound_off(self):
+        self.envelope.apply_attack(440, gs.Triangle)
+        self.envelope.set_release(0)
+        self.envelope.apply_release()
+        sound_status = pygame.mixer.get_busy()
+        self.assertEqual(sound_status, False)"""

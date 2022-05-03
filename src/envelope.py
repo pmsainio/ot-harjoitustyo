@@ -32,7 +32,6 @@ class Envelope():
                                             release=0.3e3)
         sound = self.effects.apply_effects(sound)
         sound *= float(self.gain)
-        print(sound)
         return sound.play(max_amplitude=1)
 
     def apply_release(self):
