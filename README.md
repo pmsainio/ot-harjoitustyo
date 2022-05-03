@@ -4,9 +4,13 @@
 
 Ohjelma avaa kaksi ikkunaa: toisella on kirjaimia ja toisella säätimiä. Oranssin ikkunan kirjaimet edustavat pianon koskettimia: painamalla näitä tietokoneen näppäimistöllä ohjelma soittaa säveliä. (Huomaa, että fokus pitää ensin siirtää ikkunaan klikkaamalla ko. ikkunaa.) Näppäimet z ja x siirtävät koskettimiston oktaavia ylemmäs (x) tai alemmas (z)
 
-Säädinikkunassa on syntetisaattorin ohjauspaneeli. Sine-, Triangle-, Square- tai Sawtooth-näppäintä painamalla saat vaihdettua syntikan ääntä. (Oletusarvona on Triangle). *Huomaa, että äänenvoimakkuus kasvaa ääntä vaihdettaessa. Saha-aallossa kun on loputon määrä siniaaltoja päällekkäin.* Tuner-säädin vaihtaa syntikan viritystä. Lisäksi paneelista löytyvät Attack-, Release- sekä Master-liukusäätimet. Valitettavasti näistä ainoastaan Release on toiminnassa. Säädin vaikuttaa äänen sammumisnopeuteen.
+Säädinikkunassa on syntetisaattorin ohjauspaneeli. Sine-, Triangle-, Square- tai Sawtooth-näppäintä painamalla saat vaihdettua syntikan ääntä. (Oletusarvona on Triangle). *Huomaa, että äänenvoimakkuus kasvaa ääntä vaihdettaessa.* Tuner-säädin vaihtaa syntikan viritystä.
 
-Jos olet tehnyt säädöksiä, muista klikata taas koskettimistoikkunaa soittaaksesi jotain.
+Muita säätimiä: Attack ja Release muuttavat äänen syttymis- ja sammumisnopeutta. HPF eli HiPassFilter suodattaa korkeita taajuuksia pois. Vibrato F säätää vibraton taajuutta (Frequency) ja Vibrato W säätää vibraton leveyttä (Width)
+
+Jos olet tehnyt säädöksiä paneelissa, muista klikata taas koskettimistoikkunaa soittaaksesi jotain.
+
+Hauskoja soittohetkiä!
 
 ### Asentaminen
 Ohjelman saa toimintaan komennoilla
@@ -30,6 +34,8 @@ poetry run invoke start
 [arkkitehtuuri](https://github.com/pmsainio/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 [changelog](https://github.com/pmsainio/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+
+[käyttöohje (sama kuin alussa)](https://github.com/pmsainio/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 ### Komentorivitoimintoja
 
