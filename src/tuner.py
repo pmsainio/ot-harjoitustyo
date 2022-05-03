@@ -1,4 +1,8 @@
 def tune(tuning: int):
+    """ Funktiolle annetaan viritysääni, jonka pohjalta tämä luo
+    listan taajuuksista koskettimiston alueella. Taajuusero on
+    on 2**(1/12)-kertainen vierekkäisten kosketinten välillä.
+    """
     freq = []
     key_f = tuning
     step = 2**(1/12)

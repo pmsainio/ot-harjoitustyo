@@ -2,6 +2,11 @@ import gensound as gs
 from tuner import tune
 
 class Oscillator():
+    """oskillaattoriluokka vastaa nuottien vireestä ja aaltomuodosta
+
+    Attributes:
+        envelope: luokka, josta kutsutaan alukkeita (attack) ja lopukkeita (release)
+    """
     def __init__(self, envelope):
         self.envelope = envelope
         self.waveform = gs.Triangle
@@ -11,10 +16,14 @@ class Oscillator():
         self.last_note = None
 
     def play(self, note:int):
+        """"kutsuu envelope-luokkaa, joka soittaa äänen
+        """
         self.last_note = self.frequencies[note]
         self.envelope.apply_attack(self.last_note, self.waveform)
 
     def stop(self, note:int):
+        """sammuttaa äänen, mikäli käyttäjä nostaa sormensa näppäimeltä
+        """
         if self.last_note == self.frequencies[note]:
             self.envelope.apply_release()
 
@@ -31,13 +40,18 @@ class Oscillator():
         self.waveform = gs.Sawtooth
 
     def transpose(self, down: bool):
+        """puolittaa tai kaksinkertaistaa koskettimien vireet, eli siirtää koskettimistoa
+        oktaavilla ylös tai alaspäin
+        """
         if down:
             self.octave_shift /= 2
             self.frequencies = tune(self.tuning * self.octave_shift)
-        
+
         else:
             self.octave_shift *= 2
             self.frequencies = tune(self.tuning * self.octave_shift)
 
     def retune(self, frequency):
+        """laskee koskettimille uudet taajuudet halutun viritystaajuuden pohjalta
+        """
         self.frequencies = tune(int(frequency))

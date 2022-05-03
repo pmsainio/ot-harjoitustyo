@@ -2,6 +2,11 @@ import pygame
 import gensound.transforms as gt
 
 class Envelope():
+    """luokka, joka vastaa äänen alukkeiden ja lopukkeiden pituuksista ja äänen toistamisesta
+
+    Attributes:
+        effect: luokka, josta kutsutaan efektejä, kuten filtteriä ja vibratoa
+    """
     def __init__(self, effects):
         self.attack = float(20)
         self.release = 200
@@ -18,14 +23,19 @@ class Envelope():
         self.gain = float(value)+1 * 0.005
 
     def apply_attack(self, frequency, waveform):
-            sound = waveform(frequency)*gt.ADSR(attack=self.attack,
-                                                decay=0.3e3,
-                                                sustain=1,
-                                                release=0.3e3)
-            sound = self.effects.apply_effects(sound)
-            sound *= float(self.gain)
-            print(sound)
-            return sound.play(max_amplitude=1)
+        """asettaa ensin äänelle halutun alukkeen (attack), kutsuu effects-luokasta
+        mahdollisia efektejä ja toistaa sitten äänen.
+        """
+        sound = waveform(frequency)*gt.ADSR(attack=self.attack,
+                                            decay=0.3e3,
+                                            sustain=1,
+                                            release=0.3e3)
+        sound = self.effects.apply_effects(sound)
+        sound *= float(self.gain)
+        print(sound)
+        return sound.play(max_amplitude=1)
 
     def apply_release(self):
+        """sammuttaa äänen halutulla nopeudella
+        """
         pygame.mixer.fadeout(self.release)

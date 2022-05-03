@@ -9,6 +9,9 @@ root = tk.Tk()
 root.title("Controls")
 
 def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects):
+    """tämä funktio luo napit ja liukusäätimet syntetisaattorin ohjauspaneeliin
+    """
+
     sine_button = Button(root, text="Sine", padx=30, command=oscillator.switch_sound_sine)
     triangle_button = Button(root, text="Triangle", padx=25, command=oscillator.switch_sound_triangle)
     square_button = Button(root, text="Square", padx=25, command=oscillator.switch_sound_square)
