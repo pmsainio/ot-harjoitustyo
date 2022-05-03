@@ -25,3 +25,9 @@ Seuraavat tavoitteet:
   - Toinen ikkuna toteuttaa hiirellä suoritettavat komennot
 - Puolittainen Attack-Decay-Sustain-Release(ADSR)-paneeli
 - Mukautettava viritys
+
+## Viikko 6
+
+- Filtterin lisääminen
+- Vibraton lisääminen
+- Oskillattoriluokan hajauttaminen oskillattoriksi ja verhokäyräksi (luokat Oscillator ja Envelope)

@@ -20,11 +20,17 @@ Viikko 4:
 
 Viikko 5:
 
-13.4. Palautukseen jääneiden virheiden korjaus ja ohjelman muuttaminen funktiopohjaisesta luokkapohjaiseksi (3h)
-25.4. Tk-interin opettelemista (2h)
-26.4. Tk-inter-käyttöliittymän luominen ja integrointi muuhun ohjelmaan (3h)
-26.4. Koodin siistimistä, testaamista ja buginkorjausta (2h)
+- 13.4. Palautukseen jääneiden virheiden korjaus ja ohjelman muuttaminen funktiopohjaisesta luokkapohjaiseksi (3h)
+- 25.4. Tk-interin opettelemista (2h)
+- 26.4. Tk-inter-käyttöliittymän luominen ja integrointi muuhun ohjelmaan (3h)
+- 26.4. Koodin siistimistä, testaamista ja buginkorjausta (2h)
 
 (10h)
 
-Yht. 27h
+Viikko 6:
+- 2.5. Turhaa työtä yrittäessäni yhdistää eri aaltomuotoja (2h)
+- 3.5. Oskillattoriluokan pilkkominen, filtteri ja vibrato (4h)
+
+(6h)
+
+Yht. 33h
