@@ -3,7 +3,7 @@ from ui import ui_action
 from visuals import Display
 from oscillator import Oscillator
 from envelope import Envelope
-from waves_mixer import waveMixer
+from waves_mixer import WaveMixer
 from fx import Effects
 import controls
 
@@ -12,7 +12,7 @@ pygame.font.init()
 if __name__ == "__main__":
     effects = Effects()
     envelope = Envelope(effects)
-    mixer = waveMixer()
+    mixer = WaveMixer()
     oscillator = Oscillator(envelope, mixer)
     display = Display()
     RUNNING = True

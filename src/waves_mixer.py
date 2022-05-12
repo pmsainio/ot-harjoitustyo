@@ -1,6 +1,6 @@
 from gensound import Sine, Triangle, Square, Sawtooth
 
-class waveMixer():
+class WaveMixer():
     def __init__(self):
         self.sine = 0
         self.triangle = 1
@@ -20,4 +20,7 @@ class waveMixer():
         self.sawtooth = int(level) / 200
 
     def mix(self, freq):
-        return self.sine * Sine(freq) + self.triangle * Triangle(freq) + self.square * Square(freq) + self.sawtooth * Sawtooth(freq)
+        return self.sine * Sine(freq) \
+             + self.triangle * Triangle(freq) \
+             + self.square * Square(freq) \
+             + self.sawtooth * Sawtooth(freq)

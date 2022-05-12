@@ -1,6 +1,5 @@
 import pygame
 import gensound.transforms as gt
-import gensound as gs
 
 class Envelope():
     """luokka, joka vastaa äänen alukkeiden ja lopukkeiden pituuksista ja äänen toistamisesta

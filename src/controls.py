@@ -3,11 +3,12 @@ from tkinter import *
 from oscillator import Oscillator
 from envelope import Envelope
 from fx import Effects
-from waves_mixer import waveMixer
+from waves_mixer import WaveMixer
+
 root = tk.Tk()
 root.title("Controls")
 
-def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects, mixer:waveMixer):
+def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects, mixer:WaveMixer):
     """tämä funktio luo napit ja liukusäätimet syntetisaattorin ohjauspaneeliin
     """
 
