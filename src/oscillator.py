@@ -7,8 +7,9 @@ class Oscillator():
     Attributes:
         envelope: luokka, josta kutsutaan alukkeita (attack) ja lopukkeita (release)
     """
-    def __init__(self, envelope):
+    def __init__(self, envelope, mixer):
         self.envelope = envelope
+        self.mixer = mixer
         self.waveform = gs.Triangle
         self.octave_shift = 1
         self.tuning = 440
@@ -19,25 +20,14 @@ class Oscillator():
         """"kutsuu envelope-luokkaa, joka soittaa äänen
         """
         self.last_note = self.frequencies[note]
-        self.envelope.apply_attack(self.last_note, self.waveform)
+        self.waveform = self.mixer.mix(self.last_note)
+        self.envelope.apply_attack(self.waveform)
 
     def stop(self, note:int):
         """sammuttaa äänen, mikäli käyttäjä nostaa sormensa näppäimeltä
         """
         if self.last_note == self.frequencies[note]:
             self.envelope.apply_release()
-
-    def switch_sound_sine(self):
-        self.waveform = gs.Sine
-
-    def switch_sound_triangle(self):
-        self.waveform = gs.Triangle
-
-    def switch_sound_square(self):
-        self.waveform = gs.Square
-
-    def switch_sound_saw(self):
-        self.waveform = gs.Sawtooth
 
     def transpose(self, down: bool):
         """puolittaa tai kaksinkertaistaa koskettimien vireet, eli siirtää koskettimistoa
