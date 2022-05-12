@@ -11,11 +11,11 @@ def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects, m
     """tämä funktio luo napit ja liukusäätimet syntetisaattorin ohjauspaneeliin
     """
 
-    sine_button = Scale(root, from_=100, to=0, command=mixer.set_sine)
-    triangle_button = Scale(root, from_=100, to=0, command=mixer.set_triangle)
-    square_button = Scale(root, from_=100, to=0, command=mixer.set_square)
-    saw_button = Scale(root, from_=100, to=0, command=mixer.set_sawtooth)
-    triangle_button.set(100)
+    sine_level = Scale(root, from_=100, to=0, command=mixer.set_sine)
+    triangle_level = Scale(root, from_=100, to=0, command=mixer.set_triangle)
+    square_level = Scale(root, from_=100, to=0, command=mixer.set_square)
+    saw_level = Scale(root, from_=100, to=0, command=mixer.set_sawtooth)
+    triangle_level.set(100)
 
 
     tuner = Scale(root, from_=450, to=420, command=oscillator.retune)
@@ -33,6 +33,10 @@ def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects, m
     vibrato_width.set(0)
 
     tuner_label = Label(root, text="Tuner")
+    sine_label = Label(root, text="Sine")
+    triangle_label = Label(root, text="Triangle")
+    square__label = Label(root, text="Square")
+    saw_label = Label(root, text="Sawtooth")
     attack_label = Label(root, text="Attack")
     release_label = Label(root, text="Release")
     volume_label = Label(root, text="Master")
@@ -43,19 +47,25 @@ def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects, m
 
 
     tuner.grid(row=0, column=0)
-    sine_button.grid(row=0, column=1)
-    triangle_button.grid(row=0, column=2)
-    attack.grid(row=0, column=3)
-    release.grid(row=0, column=4)
-    vibrato_frequency.grid(row=0, column=7)
-    vibrato_width.grid(row=0, column=8)
-    volume.grid(row=0, column=9)
-
+    sine_level.grid(row=0, column=1)
+    triangle_level.grid(row=0, column=2)
+    square_level.grid(row=0, column=3)
+    saw_level.grid(row=0, column=4)
+    
     tuner_label.grid(row=1, column=0)
-    square_button.grid(row=1, column=1)
-    saw_button.grid(row=1, column=2)
-    attack_label.grid(row=1, column=3)
-    release_label.grid(row=1, column=4)
-    vibrato_frequency_label.grid(row=1, column=7)
-    vibrato_width_label.grid(row=1, column=8)
-    volume_label.grid(row=1, column=9)
+    sine_label.grid(row=1, column=1)
+    triangle_label.grid(row=1, column=2)
+    square__label.grid(row=1, column=3)
+    saw_label.grid(row=1, column=4)
+
+    attack.grid(row=2, column=5)
+    release.grid(row=2, column=6)
+    vibrato_frequency.grid(row=2, column=7)
+    vibrato_width.grid(row=2, column=8)
+    volume.grid(row=2, column=9)
+
+    attack_label.grid(row=3, column=5)
+    release_label.grid(row=3, column=6)
+    vibrato_frequency_label.grid(row=3, column=7)
+    vibrato_width_label.grid(row=3, column=8)
+    volume_label.grid(row=3, column=9)
