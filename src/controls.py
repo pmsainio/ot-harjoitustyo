@@ -1,3 +1,4 @@
+from cProfile import label
 import tkinter as tk
 from tkinter import *
 from oscillator import Oscillator
@@ -46,27 +47,30 @@ def buttons_sliders(oscillator:Oscillator, envelope:Envelope, effects:Effects, m
     vibrato_width_label = Label(root, text="Vibrato W")
 
 
-
-    tuner.grid(row=0, column=0)
-    sine_level.grid(row=0, column=1)
-    triangle_level.grid(row=0, column=2)
-    square_level.grid(row=0, column=3)
-    saw_level.grid(row=0, column=4)
+    tk.OptionMenu(root, variable="a", value="a").grid(row=0, columnspan=4)
+    tk.Button(root, text="Load preset").grid(row=0, column=5)
+    tk.Entry(root).grid(row=1, columnspan=4)
+    tk.Button(root, text="Save preset").grid(row=1, column=5)
+    tuner.grid(row=2, column=0)
+    sine_level.grid(row=2, column=1)
+    triangle_level.grid(row=2, column=2)
+    square_level.grid(row=2, column=3)
+    saw_level.grid(row=2, column=4)
     
-    tuner_label.grid(row=1, column=0)
-    sine_label.grid(row=1, column=1)
-    triangle_label.grid(row=1, column=2)
-    square__label.grid(row=1, column=3)
-    saw_label.grid(row=1, column=4)
+    tuner_label.grid(row=3, column=0)
+    sine_label.grid(row=3, column=1)
+    triangle_label.grid(row=3, column=2)
+    square__label.grid(row=3, column=3)
+    saw_label.grid(row=3, column=4)
 
-    attack.grid(row=2, column=5)
-    release.grid(row=2, column=6)
-    vibrato_frequency.grid(row=2, column=7)
-    vibrato_width.grid(row=2, column=8)
-    volume.grid(row=2, column=9)
+    attack.grid(row=4, column=5)
+    release.grid(row=4, column=6)
+    vibrato_frequency.grid(row=4, column=7)
+    vibrato_width.grid(row=4, column=8)
+    volume.grid(row=4, column=9)
 
-    attack_label.grid(row=3, column=5)
-    release_label.grid(row=3, column=6)
-    vibrato_frequency_label.grid(row=3, column=7)
-    vibrato_width_label.grid(row=3, column=8)
-    volume_label.grid(row=3, column=9)
+    attack_label.grid(row=5, column=5)
+    release_label.grid(row=5, column=6)
+    vibrato_frequency_label.grid(row=5, column=7)
+    vibrato_width_label.grid(row=5, column=8)
+    volume_label.grid(row=5, column=9)
