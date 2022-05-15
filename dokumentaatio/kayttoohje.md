@@ -4,7 +4,7 @@ Ohjelma avaa kaksi ikkunaa: toisella on kirjaimia ja toisella säätimiä. Orans
 
 Säädinikkunassa on syntetisaattorin ohjauspaneeli, jossa on kaksi tekstikenttää ja kymmenen liukusäädintä.
 
-#### Presetit
+### Presetit
 Ylin kenttä näyttää kullakin hetkellä valittuna olevan presetin. (Lähtoarvona on '{2 Triangle}'.) Nappia painamalla avautuu valikko, josta voi valita toisen presetin. Asetukset tulevat voimaan painikkeella 'Load preset'.
 
 Mikäli käyttäjä haluaa tallentaa itse tekemiään säädöksiä, onnistuu se kirjoittamalla tyhjään tekstikenttään nimi uudelle presetille ja painamalla 'Save preset' -nappia kentän vieressä. Jos presetin nimi on jo käytössä, korvataan vanha preset uudella. Nimetön preset ei rekisteröidy.
@@ -13,7 +13,7 @@ Halutessaan siistiä valikoimaa, voi käyttäjä poistaa presetin valitsemalla s
 
 ![tallentamistilanne](./kuvat/koira)
 
-#### Liukusäätimet
+### Liukusäätimet
 
 Ylärivi:
 - *Tuner* muuttaa syntetisaattorin viritystä. Säätimen numero vastaa yksiviivaisen a:n hertsimäärää.
@@ -30,7 +30,6 @@ Alarivi:
 - *Master*-säädin asettaa lopullisen äänenvoimakkuuden.
 
 ![säädöksiä](./kuvat/vibr)
-
 *Käyttäjä on päättänyt asettaa oikein leveän vibraton.*
 
 
