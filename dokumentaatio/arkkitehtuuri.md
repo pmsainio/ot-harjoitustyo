@@ -43,11 +43,11 @@ Näppäimistö lähettää oskillaattorille soittokäskyn, jolloin tämä hakee 
 
 Alla on kuvaukset presetin tallentamis- ja lataamisprosesseista:
 
-![sekvenssikaavio](./kuvat/save preset.png)
+![sekvenssikaavio](./kuvat/save_preset.png)
 
 Käyttäjä haluaa tallentaa presetin, jolloin Controls-luokka kerää kaikki tarvittavat liukusäätimien tiedot ja lähettää ne SQL-luokan tallennettavaksi. Tallennuksen jälkeen Controls-luokka pyyhkii vanhan preset-valikoiman tyhjäksi ja täyttää sen uudestaan päivitetyllä listalla. (Tyhjennys liittyy tkinterin OptionMenu-valikon syntaksiin.)
 
-![sekvenssikaavio](./kuvat/load preset.png)
+![sekvenssikaavio](./kuvat/load_preset.png)
 
 Käyttäjä lataa presetin, jolloin Controls-luokka pyytää SQL-luokalta presetin tietoja. Tämän jälkeen Controls-luokka asettaa tiedot liukusäätimiin, mikä muuttaa signaalinkäsittelyluokkien muuttujia.
 
