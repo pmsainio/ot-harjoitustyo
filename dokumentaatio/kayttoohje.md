@@ -29,7 +29,8 @@ Alarivi:
 - *Vibrato W* säätää vibraton leveyttä (width). Arvon kasvaessa äänen värinä muuttuu voimakkaammaksi. **Mikäli sekä *Vibrato F*- että *Vibrato W*-säätimet ovat nollassa, ei vibratoa ilmene.**
 - *Master*-säädin asettaa lopullisen äänenvoimakkuuden.
 
-![säädöksiä](./kovat/vibr)
+![säädöksiä](./kuvat/vibr)
+
 *Käyttäjä on päättänyt asettaa oikein leveän vibraton.*
 
 
