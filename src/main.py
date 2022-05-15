@@ -1,11 +1,11 @@
 import pygame
 from user_interface.keyboard import ui_action
 from user_interface.visuals import Display
+from user_interface.controls import Controls
 from signal_prosessing.oscillator import Oscillator
 from signal_prosessing.envelope import Envelope
 from signal_prosessing.waves_mixer import WaveMixer
 from signal_prosessing.fx import Effects
-from user_interface.controls import Controls
 import sql.sql_schema as sql
 
 pygame.font.init()
