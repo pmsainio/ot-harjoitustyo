@@ -37,8 +37,8 @@ def get_presets():
     return presets
 
 def load_preset_data(name):
-    """Ottaa presetin nimen ja palauttaa sen mukaiset asetukset. Joskus nimi on muodossa "('nimi,')",
-    mistä ehtolause.
+    """Ottaa presetin nimen ja palauttaa sen mukaiset asetukset. Joskus nimi on
+    muodossa "('nimi,')", mistä ehtolause.
     """
     if name[0] == "(":
         name = name[2:-3]
@@ -46,7 +46,8 @@ def load_preset_data(name):
     return preset
 
 def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato_f, vibrato_w):
-    """Tallentaa presetin arvot taulukkoon tai, jos nimi on varattu, päivittää olemassa olevan rivin.
+    """Tallentaa presetin arvot taulukkoon tai, jos nimi on varattu,
+    päivittää olemassa olevan rivin.
     """
     if name == "":
         return
