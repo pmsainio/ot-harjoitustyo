@@ -33,4 +33,10 @@ Viikko 6:
 
 (6h)
 
-Yht. 33h
+Viiko 7:
+- 4.5. Filtterin poistaminen ja onnistunut aaltomuotojen yhdistäminen (2h)
+- 12.5. Käyttöliittymän uudistaminen uutta toiminnallisuutta vastaavaksi (1h)
+- 14.5. SQL-pohjat presettien tallentamista varten (2h)
+- 15.5. SQL-komennot ja päivitetty käyttöliittymä presettien lataamista ja tallentamista varten (2h)
+
+Yht. 40h

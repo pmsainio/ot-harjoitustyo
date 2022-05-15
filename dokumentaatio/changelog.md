@@ -31,3 +31,9 @@ Seuraavat tavoitteet:
 - Filtterin lisääminen
 - Vibraton lisääminen
 - Oskillattoriluokan hajauttaminen oskillattoriksi ja verhokäyräksi (luokat Oscillator ja Envelope)
+
+## Viikko 7
+
+- Filtteri poistettu
+- Eri aaltomuotojen voimakkuudet itsenäisesti säädettävissä
+- Presettien tallettaminen ja lataaminen
