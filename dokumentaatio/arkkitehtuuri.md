@@ -10,7 +10,7 @@ Sovelluksen koodi on jaettu kolmeen kansioon: signal prosessing, sql ja user int
 
 ### Signaalinkäsittely
 
-![Oskillaattori](.kuvat/DSP.png)
+![Oskillaattori](./kuvat/DSP.png)
 
 Signaalinkäsittelyosion keskiössä on säännöllisten taajuuksien tuottaja eli oskillattori. Oscillator-luokka kutsuu nuottien taajuusluetteloa tuner-moduulista ja aaltomuotoa WaveMixer-luokasta. Kun ääni halutaan soittaa, kutsutaan luokkaa Envelope, joka luo verhokäyrän eli alukkeet ja lopukkeet. Envelope-luokka puolestaan kutsuu Effects-luokasta mahdollisia efektejä.
 
@@ -20,7 +20,7 @@ Käyttöliittymässä on kaksi eri ikkunaa: toinen on staattinen ja vihjaa käyt
 
 ### Kutsut pakkausten välillä
 
-![sovelluslogiikka](.kuvat/sovelluslogiikka.png)
+![sovelluslogiikka](./kuvat/sovelluslogiikka.png)
 
 Käyttöliittymän Controls-luokka syöttää tietoa jokaiseen signaalinkäsittypakkauksen luokkaan. Keyboard-moduuli kutsuu komentoja ainoastaan Oscillator-luokasta. SQL-toiminnot ovat yhteydessä ainoastaan Controls-luokkaan.
 
