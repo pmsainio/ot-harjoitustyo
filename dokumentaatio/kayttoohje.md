@@ -30,7 +30,7 @@ Alarivi:
 - *Master*-säädin asettaa lopullisen äänenvoimakkuuden.
 
 ![säädöksiä](./kuvat/vibr)
-*Käyttäjä on päättänyt asettaa oikein leveän vibraton.*
+ *Käyttäjä on päättänyt asettaa oikein leveän vibraton.*
 
 
 Jos olet tehnyt säädöksiä paneelissa, muista klikata taas koskettimistoikkunaa soittaaksesi jotain.
