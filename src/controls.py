@@ -18,7 +18,7 @@ class Controls():
         self.delete_button = tk.Button(self.root, text="Delete preset", command=self.delete_preset)
         self.name_preset = tk.Entry(self.root)
         self.save_button = tk.Button(self.root, text="Save preset", command=self.save_preset)
-        self.reset_button = tk.Button(self.root, text="Reset originals", command=self.reset_originals)
+        self.reset_button = tk.Button(self.root, text="Factory reset", command=self.factory_reset)
 
         self.sine_level = Scale(self.root, from_=100, to=0, command=mixer.set_sine)
         self.triangle_level = Scale(self.root, from_=100, to=0, command=mixer.set_triangle)
@@ -119,19 +119,17 @@ class Controls():
 
     def delete_preset(self):
         sql.delete_preset(self.chosen_preset.get())
-        print(sql.get_presets())
         self.update_preset_list()
         self.chosen_preset.set("")
 
-    def reset_originals(self):
-        sql.reset_originals()
+    def factory_reset(self):
+        sql.factory_reset()
 
     def update_preset_list(self):
         menu = self.preset_menu["menu"]
         menu.delete(0, "end")
         self.presets = sql.get_presets()
         for preset in self.presets:
-            print(preset)
             menu.add_command(label=preset, 
                              command=lambda value=preset: self.chosen_preset.set(value))
 

@@ -4,7 +4,6 @@ db = sqlite3.connect("presets.db")
 db.isolation_level = None
 
 def init():
-    #db.execute("drop TABLE if exists Presets;")
     try:
         db.execute("CREATE TABLE Presets (name TEXT UNIQUE,\
                                           sine INTEGER,\
@@ -19,10 +18,15 @@ def init():
         pass
 
     try:
-        db.execute("INSERT INTO Presets VALUES ('Sine', 100, 0, 0, 0, 1, 0, 0, 0)")
-        db.execute("INSERT INTO Presets VALUES ('Triangle', 0, 100, 0, 0, 1, 0, 0, 0)")
-        db.execute("INSERT INTO Presets VALUES ('Square', 0, 0, 100, 0, 0, 1, 0, 0)")
-        db.execute("INSERT INTO Presets VALUES ('Sawtooth', 0, 0, 0, 100, 1, 0, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('1 Sine', 100, 0, 0, 0, 1, 0, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('2 Triangle', 0, 100, 0, 0, 1, 0, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('3 Square', 0, 0, 100, 0, 0, 1, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('4 Sawtooth', 0, 0, 0, 100, 1, 0, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('Bee', 0, 60, 70, 35, 20, 200, 20, 14)")
+        db.execute("INSERT INTO Presets VALUES ('Cat', 80, 60, 15, 30, 120, 50, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('Skeleton', 100, 15, 45, 30, 1, 0, 20, 20)")
+        db.execute("INSERT INTO Presets VALUES ('Snake', 0, 100, 30, 65, 20, 200, 3, 7)")
+        
     except:
         pass
 
@@ -53,4 +57,6 @@ def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato
 def delete_preset(name):
     db.execute("DELETE FROM Presets WHERE name=?", [name[2:-3]])
 
-    
+def factory_reset():
+    db.execute("drop TABLE if exists Presets")
+    init()
