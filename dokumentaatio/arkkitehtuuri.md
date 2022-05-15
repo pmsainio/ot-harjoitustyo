@@ -18,7 +18,7 @@ Signaalinkäsittelyosion keskiössä on säännöllisten taajuuksien tuottaja el
 
 Käyttöliittymässä on kaksi eri ikkunaa: *Visuals* on staattinen ja vihjaa käyttäjälle, millä näppäimillä on käyttöarvoa, kun taas *Controls* sisältää kaiken käyttäjän säädettävän. Pakkauksessa on kolmas moduuli, *Keyboard* joka ottaa vastaan näppäimistöllä tapahtuvan toiminnan ja välittää komennot eteenpäin virittimelle tai oskillaattorille. Käyttöliittymäpakkauksen sisäiset moduulit eivät kommunikoi keskenään.
 
-![Controls-paneeli](./kuvat/controls.png)
+![Controls-paneeli](./kuvat/controls)
 *Controls-paneelissa on liukusäätimiä äänen muuttamista varten*
 
 ### Kutsut pakkausten välillä
