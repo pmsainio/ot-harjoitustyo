@@ -5,7 +5,7 @@ from oscillator import Oscillator
 from envelope import Envelope
 from waves_mixer import WaveMixer
 from fx import Effects
-import controls
+from controls import Controls
 import sql_schema
 
 pygame.font.init()
@@ -15,12 +15,14 @@ if __name__ == "__main__":
     envelope = Envelope(effects)
     mixer = WaveMixer()
     oscillator = Oscillator(envelope, mixer)
+    controls = Controls(oscillator, envelope, effects, mixer)
+    controls.set_basics()
+    controls.grid()
+    sql_schema.init()
     display = Display()
-    RUNNING = True
     pygame.mixer.init()
     display.update()
-    sql_schema.init()
-    controls.buttons_sliders(oscillator, envelope, effects, mixer)
+    RUNNING = True    
 
     while RUNNING:
         ui_action(oscillator)

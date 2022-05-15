@@ -4,37 +4,42 @@ db = sqlite3.connect("presets.db")
 db.isolation_level = None
 
 def init():
-    
+    db.execute("drop TABLE if exists Presets;")
     try:
-        db.execute("CREATE TABLE Presets (name TEXT,\
-                                          values INTEGER")
+        db.execute("CREATE TABLE Presets (name TEXT UNIQUE,\
+                                          sine INTEGER,\
+                                          triangle INTEGER,\
+                                          square INTEGER, \
+                                          sawtooth INTEGER, \
+                                          attack INTEGER, \
+                                          release INTEGER, \
+                                          vibrato_f INTEGER, \
+                                          vibrato_w INTEGER)")
     except:
         pass
 
     try:
-        db.execute("INSERT INTO Presets (name, values)\
-                    VALUES ('Sine', [100, 0, 0, 0, 0, 0, 0, 0])")
-        db.execute("INSERT INTO Presets (name, values)\
-                    VALUES ('Triangle', [0, 100, 0, 0, 0, 0, 0, 0])")
-        db.execute("INSERT INTO Presets (name, values)\
-                    VALUES ('Square', [0, 0, 100, 0, 0, 0, 0, 0])")
-        db.execute("INSERT INTO Presets (name, values)\
-                    VALUES ('Sawtooth', [0, 0, 0, 100, 0, 0, 0, 0])")
+        db.execute("INSERT INTO Presets VALUES ('Sine', 100, 0, 0, 0, 0, 1, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('Triangle', 0, 100, 0, 0, 1, 0, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('Square', 0, 0, 100, 0, 0, 1, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('Sawtooth', 0, 0, 0, 100, 1, 0, 0, 0)")
     except:
         pass
 
-def save_preset(name, values:list):
-    try:
-        db.execute("INSERT INTO Presets (name, values) \
-                                         VALUES (?, ?)",
-                                        [name, [values[0], values[1], 
-                                         values[2], values[3], values[4], 
-                                         values[5], values[6], values[7]]])
-    except:
-        # if name in presets:
-        # db.execute("UPDATE
-        #else:
-            pass
+def get_presets():
+    presets = db.execute("SELECT name FROM Presets").fetchall()
+    return presets
 
-def load_preset(name):
-    db.execute("SELECT * FROM Presets WHERE name=:?", [name]).fetchone()
+def load_preset_data(name):
+    preset = db.execute("SELECT * FROM Presets WHERE name=?", [name[2:-3]]).fetchone()
+    return preset
+
+def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato_f, vibrato_w):
+    try:
+        db.execute("INSERT INTO Presets (name, sine, triangle, square, sawtooth, \
+                                         attack, release, vibrato_f, vibrato_w) \
+                                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                        [name, sine, triangle, square, sawtooth,
+                                         attack, release, vibrato_f, vibrato_w])
+    except:
+        db.execute("UPDATE Presets SET settings=:? WHERE name=:?", [values, name])
