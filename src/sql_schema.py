@@ -4,7 +4,7 @@ db = sqlite3.connect("presets.db")
 db.isolation_level = None
 
 def init():
-    db.execute("drop TABLE if exists Presets;")
+    #db.execute("drop TABLE if exists Presets;")
     try:
         db.execute("CREATE TABLE Presets (name TEXT UNIQUE,\
                                           sine INTEGER,\
@@ -19,7 +19,7 @@ def init():
         pass
 
     try:
-        db.execute("INSERT INTO Presets VALUES ('Sine', 100, 0, 0, 0, 0, 1, 0, 0)")
+        db.execute("INSERT INTO Presets VALUES ('Sine', 100, 0, 0, 0, 1, 0, 0, 0)")
         db.execute("INSERT INTO Presets VALUES ('Triangle', 0, 100, 0, 0, 1, 0, 0, 0)")
         db.execute("INSERT INTO Presets VALUES ('Square', 0, 0, 100, 0, 0, 1, 0, 0)")
         db.execute("INSERT INTO Presets VALUES ('Sawtooth', 0, 0, 0, 100, 1, 0, 0, 0)")
@@ -35,6 +35,9 @@ def load_preset_data(name):
     return preset
 
 def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato_f, vibrato_w):
+    if name == "":
+        return
+
     try:
         db.execute("INSERT INTO Presets (name, sine, triangle, square, sawtooth, \
                                          attack, release, vibrato_f, vibrato_w) \
@@ -42,4 +45,12 @@ def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato
                                         [name, sine, triangle, square, sawtooth,
                                          attack, release, vibrato_f, vibrato_w])
     except:
-        db.execute("UPDATE Presets SET settings=:? WHERE name=:?", [values, name])
+        db.execute("UPDATE Presets SET sine=?, triangle=?, square=?, sawtooth=?, \
+                                       attack=?, release=?, vibrato_f=?, vibrato_w=? \
+                                       WHERE name=?", [sine, triangle, square, sawtooth,
+                                       attack, release, vibrato_f, vibrato_w, name])
+
+def delete_preset(name):
+    db.execute("DELETE FROM Presets WHERE name=?", [name[2:-3]])
+
+    
