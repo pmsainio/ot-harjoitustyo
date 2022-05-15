@@ -76,3 +76,5 @@ poetry run invoke lint
 [release 1](https://github.com/pmsainio/ot-harjoitustyo/releases/tag/viikko5)
 
 [release 2](https://github.com/pmsainio/ot-harjoitustyo/releases/tag/viikko6)
+
+[final release](https://github.com/pmsainio/ot-harjoitustyo/releases/tag/viikko7)
