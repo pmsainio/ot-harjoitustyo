@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import *
 from oscillator import Oscillator
 from envelope import Envelope
 from fx import Effects
@@ -20,44 +19,50 @@ class Controls():
         self.save_button = tk.Button(self.root, text="Save preset", command=self.save_preset)
         self.reset_button = tk.Button(self.root, text="Factory reset", command=self.factory_reset)
 
-        self.sine_level = Scale(self.root, from_=100, to=0, command=mixer.set_sine)
-        self.triangle_level = Scale(self.root, from_=100, to=0, command=mixer.set_triangle)
-        self.square_level = Scale(self.root, from_=100, to=0, command=mixer.set_square)
-        self.saw_level = Scale(self.root, from_=100, to=0, command=mixer.set_sawtooth)
+        self.sine_level = tk.Scale(self.root, from_=100, to=0, command=mixer.set_sine)
+        self.triangle_level = tk.Scale(self.root, from_=100, to=0, command=mixer.set_triangle)
+        self.square_level = tk.Scale(self.root, from_=100, to=0, command=mixer.set_square)
+        self.saw_level = tk.Scale(self.root, from_=100, to=0, command=mixer.set_sawtooth)
 
-        self.tuner = Scale(self.root, from_=450, to=420, command=oscillator.retune)
-        self.attack = Scale(self.root, from_=0.999e3, to=0.001e3, command=envelope.set_attack) 
-        self.release = Scale(self.root, from_=500, to=0, command=envelope.set_release)
-        self.volume = Scale(self.root, from_=100, to=0, command=envelope.set_gain)
+        self.tuner = tk.Scale(self.root, from_=450, to=420, command=oscillator.retune)
+        self.attack = tk.Scale(self.root, from_=0.999e3, to=0.001e3, command=envelope.set_attack)
+        self.release = tk.Scale(self.root, from_=500, to=0, command=envelope.set_release)
+        self.volume = tk.Scale(self.root, from_=100, to=0, command=envelope.set_gain)
 
-        self.tuner = Scale(self.root, from_=450, to=420, command=oscillator.retune)
-        self.attack = Scale(self.root, from_=0.999e3, to=0.001e3, command=envelope.set_attack) 
-        self.release = Scale(self.root, from_=500, to=0, command=envelope.set_release)
-        self.volume = Scale(self.root, from_=100, to=0, command=envelope.set_gain)
+        self.tuner = tk.Scale(self.root, from_=450, to=420, command=oscillator.retune)
+        self.attack = tk.Scale(self.root, from_=0.999e3, to=0.001e3, command=envelope.set_attack)
+        self.release = tk.Scale(self.root, from_=500, to=0, command=envelope.set_release)
+        self.volume = tk.Scale(self.root, from_=100, to=0, command=envelope.set_gain)
 
-        self.vibrato_frequency = Scale(self.root, from_=20, to=0, command=effects.set_vibrato_f)
-        self.vibrato_width = Scale(self.root, from_=20, to=0, command=effects.set_vibrato_w)
+        self.vibrato_frequency = tk.Scale(self.root, from_=20, to=0, command=effects.set_vibrato_f)
+        self.vibrato_width = tk.Scale(self.root, from_=20, to=0, command=effects.set_vibrato_w)
         self.vibrato_frequency.set(0)
         self.vibrato_width.set(0)
 
-        self.tuner_label = Label(self.root, text="Tuner")
-        self.sine_label = Label(self.root, text="Sine")
-        self.triangle_label = Label(self.root, text="Triangle")
-        self.square__label = Label(self.root, text="Square")
-        self.saw_label = Label(self.root, text="Sawtooth")
-        self.attack_label = Label(self.root, text="Attack")
-        self.release_label = Label(self.root, text="Release")
-        self.volume_label = Label(self.root, text="Master")
+        self.tuner_label = tk.Label(self.root, text="Tuner")
+        self.sine_label = tk.Label(self.root, text="Sine")
+        self.triangle_label = tk.Label(self.root, text="Triangle")
+        self.square__label = tk.Label(self.root, text="Square")
+        self.saw_label = tk.Label(self.root, text="Sawtooth")
+        self.attack_label = tk.Label(self.root, text="Attack")
+        self.release_label = tk.Label(self.root, text="Release")
+        self.volume_label = tk.Label(self.root, text="Master")
 
-        self.vibrato_frequency_label = Label(self.root, text="Vibrato F")
-        self.vibrato_width_label = Label(self.root, text="Vibrato W")
+        self.vibrato_frequency_label = tk.Label(self.root, text="Vibrato F")
+        self.vibrato_width_label = tk.Label(self.root, text="Vibrato W")
 
     def set_basics(self):
-        self.triangle_level.set(100)
         self.tuner.set(440)
+        self.sine_level.set(0)
+        self.triangle_level.set(100)
+        self.square_level.set(0)
+        self.saw_level.set(0)
         self.attack.set(20)
         self.release.set(200)
+        self.vibrato_frequency.set(0)
+        self.vibrato_width.set(0)
         self.volume.set(50)
+
         self.chosen_preset.set(self.presets[1])
 
     def grid(self):
@@ -73,7 +78,7 @@ class Controls():
         self.triangle_level.grid(row=2, column=2)
         self.square_level.grid(row=2, column=3)
         self.saw_level.grid(row=2, column=4)
-        
+
         self.tuner_label.grid(row=3, column=0)
         self.sine_label.grid(row=3, column=1)
         self.triangle_label.grid(row=3, column=2)
@@ -130,14 +135,12 @@ class Controls():
         sql.factory_reset()
         self.update_preset_list()
         self.name_preset.delete(0, 'end')
-        self.chosen_preset.set(self.presets[1])
+        self.set_basics()
 
     def update_preset_list(self):
         menu = self.preset_menu["menu"]
         menu.delete(0, "end")
         self.presets = sql.get_presets()
         for preset in self.presets:
-            menu.add_command(label=preset, 
+            menu.add_command(label=preset,
                              command=lambda value=preset: self.chosen_preset.set(value))
-
-

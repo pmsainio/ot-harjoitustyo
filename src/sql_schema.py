@@ -14,7 +14,7 @@ def init():
                                           release INTEGER, \
                                           vibrato_f INTEGER, \
                                           vibrato_w INTEGER)")
-    except:
+    except sqlite3.OperationalError:
         pass
 
     try:
@@ -26,8 +26,8 @@ def init():
         db.execute("INSERT INTO Presets VALUES ('Cat', 80, 60, 15, 30, 120, 50, 0, 0)")
         db.execute("INSERT INTO Presets VALUES ('Skeleton', 100, 15, 45, 30, 1, 0, 20, 20)")
         db.execute("INSERT INTO Presets VALUES ('Snake', 0, 100, 30, 65, 20, 200, 3, 7)")
-        
-    except:
+
+    except sqlite3.IntegrityError:
         pass
 
 def get_presets():
@@ -50,7 +50,7 @@ def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato
                                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                                         [name, sine, triangle, square, sawtooth,
                                          attack, release, vibrato_f, vibrato_w])
-    except:
+    except sqlite3.IntegrityError:
         db.execute("UPDATE Presets SET sine=?, triangle=?, square=?, sawtooth=?, \
                                        attack=?, release=?, vibrato_f=?, vibrato_w=? \
                                        WHERE name=?", [sine, triangle, square, sawtooth,

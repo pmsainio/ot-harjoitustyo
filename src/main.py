@@ -22,7 +22,7 @@ if __name__ == "__main__":
     display = Display()
     pygame.mixer.init()
     display.update()
-    RUNNING = True    
+    RUNNING = True
 
     while RUNNING:
         ui_action(oscillator)
