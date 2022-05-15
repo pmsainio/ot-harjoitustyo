@@ -58,7 +58,7 @@ class Controls():
         self.attack.set(20)
         self.release.set(200)
         self.volume.set(50)
-        self.chosen_preset.set(self.presets[3])
+        self.chosen_preset.set(self.presets[1])
 
     def grid(self):
         self.preset_menu.grid(row=0, columnspan=4)
@@ -66,6 +66,7 @@ class Controls():
         self.delete_button.grid(row=0, column=6, columnspan=2)
         self.name_preset.grid(row=1, columnspan=4)
         self.save_button.grid(row=1, column=4, columnspan=2)
+        self.reset_button.grid(row=1, column=6, columnspan=2)
 
         self.tuner.grid(row=2, column=0)
         self.sine_level.grid(row=2, column=1)
@@ -92,6 +93,8 @@ class Controls():
         self.volume_label.grid(row=5, column=8)
 
     def load_preset(self):
+        if self.chosen_preset.get() == "":
+            return
         data = sql.load_preset_data(self.chosen_preset.get())
         self.sine_level.set(data[1])
         self.triangle_level.set(data[2])
@@ -116,6 +119,7 @@ class Controls():
             )
         self.update_preset_list()
         self.chosen_preset.set(self.name_preset.get())
+        self.name_preset.delete(0, 'end')
 
     def delete_preset(self):
         sql.delete_preset(self.chosen_preset.get())
@@ -124,6 +128,9 @@ class Controls():
 
     def factory_reset(self):
         sql.factory_reset()
+        self.update_preset_list()
+        self.name_preset.delete(0, 'end')
+        self.chosen_preset.set(self.presets[1])
 
     def update_preset_list(self):
         menu = self.preset_menu["menu"]

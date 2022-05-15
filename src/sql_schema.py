@@ -35,7 +35,9 @@ def get_presets():
     return presets
 
 def load_preset_data(name):
-    preset = db.execute("SELECT * FROM Presets WHERE name=?", [name[2:-3]]).fetchone()
+    if name[0] == "(":
+        name = name[2:-3]
+    preset = db.execute("SELECT * FROM Presets WHERE name=?", [name]).fetchone()
     return preset
 
 def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato_f, vibrato_w):
