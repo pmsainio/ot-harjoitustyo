@@ -83,7 +83,6 @@ def ui_action(oscillator: Oscillator):
                     oscillator.stop(15)
                 if event.key == 246:
                     oscillator.stop(16)
-
-        
+ 
         if event.type == pygame.QUIT:
             exit()
