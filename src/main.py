@@ -11,6 +11,7 @@ import sql.sql_schema as sql
 pygame.font.init()
 
 if __name__ == "__main__":
+    sql.init()
     effects = Effects()
     envelope = Envelope(effects)
     mixer = WaveMixer()
@@ -18,7 +19,6 @@ if __name__ == "__main__":
     controls = Controls(oscillator, envelope, effects, mixer)
     controls.set_basics()
     controls.grid()
-    sql.init()
     display = Display()
     pygame.mixer.init()
     display.update()
