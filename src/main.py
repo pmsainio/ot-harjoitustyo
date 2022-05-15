@@ -1,12 +1,12 @@
 import pygame
-from ui import ui_action
-from visuals import Display
-from oscillator import Oscillator
-from envelope import Envelope
-from waves_mixer import WaveMixer
-from fx import Effects
-from controls import Controls
-import sql_schema
+from user_interface.keyboard import ui_action
+from user_interface.visuals import Display
+from signal_prosessing.oscillator import Oscillator
+from signal_prosessing.envelope import Envelope
+from signal_prosessing.waves_mixer import WaveMixer
+from signal_prosessing.fx import Effects
+from user_interface.controls import Controls
+import sql.sql_schema as sql
 
 pygame.font.init()
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     controls = Controls(oscillator, envelope, effects, mixer)
     controls.set_basics()
     controls.grid()
-    sql_schema.init()
+    sql.init()
     display = Display()
     pygame.mixer.init()
     display.update()

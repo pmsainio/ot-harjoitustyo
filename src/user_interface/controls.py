@@ -1,9 +1,9 @@
 import tkinter as tk
-from oscillator import Oscillator
-from envelope import Envelope
-from fx import Effects
-from waves_mixer import WaveMixer
-import sql_schema as sql
+from signal_prosessing.oscillator import Oscillator
+from signal_prosessing.envelope import Envelope
+from signal_prosessing.fx import Effects
+from signal_prosessing.waves_mixer import WaveMixer
+import sql.sql_schema as sql
 
 class Controls():
     """Ohjauspaneelista vastaava luokka. Toteuttaa käyttöliittymän toiminnallisuutta. Luokka on suuri lukuisten pienten osasten vuoksi.

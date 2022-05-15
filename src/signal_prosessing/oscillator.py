@@ -1,5 +1,5 @@
 import gensound as gs
-from tuner import tune
+from signal_prosessing.tuner import tune
 
 class Oscillator():
     """oskillaattoriluokka vastaa nuottien taajuuksista ja soittohetkistä

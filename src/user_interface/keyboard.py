@@ -1,5 +1,5 @@
 import pygame
-from oscillator import Oscillator
+from signal_prosessing.oscillator import Oscillator
 
 def ui_action(oscillator: Oscillator):
     for event in pygame.event.get():
