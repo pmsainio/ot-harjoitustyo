@@ -5,7 +5,7 @@ class Envelope():
     """luokka, joka vastaa äänen alukkeiden ja lopukkeiden pituuksista ja äänen toistamisesta
 
     Attributes:
-        effect: luokka, josta kutsutaan efektejä, kuten filtteriä ja vibratoa
+        effects: luokka, josta kutsutaan efektejä, kuten vibratoa
     """
     def __init__(self, effects):
         self.attack = float(20)
@@ -29,10 +29,6 @@ class Envelope():
         sound = self.gain * waveform
         sound *= gt.ADSR(attack=self.attack, decay=0.3e3, sustain=1, release=0.3e3)
         sound = self.effects.apply_effects(sound)
-        if pygame.mixer.get_busy():
-            #fadeout
-            sound = sound * gt.Shift(80)
-            return sound.play()
         return sound.play()
 
     def apply_release(self):

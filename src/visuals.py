@@ -1,6 +1,5 @@
 import pygame
 
-
 class Display():
     def __init__(self):
         self.width = 720
@@ -31,6 +30,3 @@ class Display():
 
         shift_buttons = self.font.render("z x", 1, (25, 25, 25))
         self.screen.blit(shift_buttons, (50, 400))
-
-    #oct_shift = wavefont.render(f"oct {os_screen}", 1, (30, 30, 30))
-    #screen.blit(oct_shift, (70, 400))

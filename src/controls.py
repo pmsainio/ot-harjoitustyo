@@ -6,7 +6,17 @@ from waves_mixer import WaveMixer
 import sql_schema as sql
 
 class Controls():
+    """Ohjauspaneelista vastaava luokka. Toteuttaa käyttöliittymän toiminnallisuutta. Luokka on suuri lukuisten pienten osasten vuoksi.
+
+    Attributes:
+        oscillator: luokka, jolle välitetään viritystaajuus
+        envelope: luokka, jolle välitetään alukkeiden (attack) ja lopukkeiden (release) pituudet
+        effects: luokka, jolle välitetään vibraton taajuus ja amplitudi
+        mixer: luokka, joka muodostaa halutunmuotoisen ääniaallon
+    """
     def __init__(self, oscillator:Oscillator, envelope:Envelope, effects:Effects, mixer:WaveMixer):
+        """Luo ikkunan, napit ja säätimet, joilla ohjataan muita luokkia.
+        """
         self.root = tk.Tk()
         self.root.title("Controls")
         self.presets = sql.get_presets()
@@ -52,6 +62,8 @@ class Controls():
         self.vibrato_width_label = tk.Label(self.root, text="Vibrato W")
 
     def set_basics(self):
+        """Laittaa ohajuspaneeliin tehdasasetukset
+        """
         self.tuner.set(440)
         self.sine_level.set(0)
         self.triangle_level.set(100)
@@ -62,10 +74,11 @@ class Controls():
         self.vibrato_frequency.set(0)
         self.vibrato_width.set(0)
         self.volume.set(50)
-
         self.chosen_preset.set(self.presets[1])
 
     def grid(self):
+        """Asettaa säätimet ja napit paikoilleen
+        """
         self.preset_menu.grid(row=0, columnspan=4)
         self.load_button.grid(row=0, column=4, columnspan=2)
         self.delete_button.grid(row=0, column=6, columnspan=2)
@@ -97,7 +110,20 @@ class Controls():
         self.vibrato_width_label.grid(row=5, column=7)
         self.volume_label.grid(row=5, column=8)
 
+    def update_preset_list(self):
+        """Tyhjentää preset-taulukon ja hakee sinne uudet arvot sql-moduulista
+        """
+        menu = self.preset_menu["menu"]
+        menu.delete(0, "end")
+        self.presets = sql.get_presets()
+        for preset in self.presets:
+            menu.add_command(label=preset,
+                             command=lambda value=preset: self.chosen_preset.set(value))
+
+
     def load_preset(self):
+        """Kutsuu sql-moduulista halutun presetin arvot ja asettaa ne liukusäätimiin
+        """
         if self.chosen_preset.get() == "":
             return
         data = sql.load_preset_data(self.chosen_preset.get())
@@ -111,6 +137,9 @@ class Controls():
         self.vibrato_width.set(data[8])
 
     def save_preset(self):
+        """Hakee liukusäätimistä arvot ja välittää ne sql-moduulille tallennettavaksi. 
+           Päivittää preset-taulukon, ja asettaa juuri tallenetun presetin valituksi
+        """
         sql.save_preset(
             self.name_preset.get(),
             self.sine_level.get(),
@@ -127,20 +156,17 @@ class Controls():
         self.name_preset.delete(0, 'end')
 
     def delete_preset(self):
+        """Välittää poistettavan presetin sql-moduulille ja päivittää preset-taulukon
+        """
         sql.delete_preset(self.chosen_preset.get())
         self.update_preset_list()
         self.chosen_preset.set("")
 
     def factory_reset(self):
+        """Kutsuu sql-moduulia palauttamaan tehdasasetukset ja palauttaa liukusäätimet
+           alkuperäisiin asemiinsa
+        """
         sql.factory_reset()
         self.update_preset_list()
         self.name_preset.delete(0, 'end')
         self.set_basics()
-
-    def update_preset_list(self):
-        menu = self.preset_menu["menu"]
-        menu.delete(0, "end")
-        self.presets = sql.get_presets()
-        for preset in self.presets:
-            menu.add_command(label=preset,
-                             command=lambda value=preset: self.chosen_preset.set(value))

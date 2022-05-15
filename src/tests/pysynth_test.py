@@ -91,6 +91,7 @@ class TestTransposing(unittest.TestCase):
                                                     987.7666025122483, 1046.5022612023947,
                                                     1108.7305239074885, 1174.6590716696305,
                                                     1244.507934888324, 1318.5102276514801])
+
 class TestSound(unittest.TestCase):
     def setUp(self):
         self.effects = Effects()

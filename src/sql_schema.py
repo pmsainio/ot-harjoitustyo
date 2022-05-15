@@ -4,6 +4,8 @@ db = sqlite3.connect("presets.db")
 db.isolation_level = None
 
 def init():
+    """Luo taulukon ja presetit, mikäli niitä ei ole.
+    """
     try:
         db.execute("CREATE TABLE Presets (name TEXT UNIQUE,\
                                           sine INTEGER,\
@@ -35,12 +37,17 @@ def get_presets():
     return presets
 
 def load_preset_data(name):
+    """Ottaa presetin nimen ja palauttaa sen mukaiset asetukset. Joskus nimi on muodossa "('nimi,')",
+    mistä ehtolause.
+    """
     if name[0] == "(":
         name = name[2:-3]
     preset = db.execute("SELECT * FROM Presets WHERE name=?", [name]).fetchone()
     return preset
 
 def save_preset(name, sine, triangle, square, sawtooth, attack, release, vibrato_f, vibrato_w):
+    """Tallentaa presetin arvot taulukkoon tai, jos nimi on varattu, päivittää olemassa olevan rivin.
+    """
     if name == "":
         return
 
@@ -60,5 +67,7 @@ def delete_preset(name):
     db.execute("DELETE FROM Presets WHERE name=?", [name[2:-3]])
 
 def factory_reset():
+    """Tuhoaa taulukon sisältöineen ja alustaa sen uudestaan.
+    """
     db.execute("drop TABLE if exists Presets")
     init()

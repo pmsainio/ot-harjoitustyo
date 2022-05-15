@@ -1,6 +1,9 @@
 from gensound import Sine, Triangle, Square, Sawtooth
 
 class WaveMixer():
+    """Palauttaa signaalin, joka on yhdistelmä eri aaltomuotoja.
+    Luokka myös kompensoi kantti- ja saha-aaltojen kovaäänisyyttä.
+    """
     def __init__(self):
         self.sine = 0
         self.triangle = 1

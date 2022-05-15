@@ -2,10 +2,11 @@ import gensound as gs
 from tuner import tune
 
 class Oscillator():
-    """oskillaattoriluokka vastaa nuottien vireestä ja aaltomuodosta
+    """oskillaattoriluokka vastaa nuottien taajuuksista ja soittohetkistä
 
     Attributes:
         envelope: luokka, josta kutsutaan alukkeita (attack) ja lopukkeita (release)
+        mixer: luokka, joka muodostaa halutunmuotoisen ääniaallon.
     """
     def __init__(self, envelope, mixer):
         self.envelope = envelope
