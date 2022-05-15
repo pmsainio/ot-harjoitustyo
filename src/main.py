@@ -7,7 +7,7 @@ from signal_prosessing.envelope import Envelope
 from signal_prosessing.waves_mixer import WaveMixer
 from signal_prosessing.fx import Effects
 import sql.sql_schema as sql
-
+ 
 pygame.font.init()
 
 if __name__ == "__main__":
